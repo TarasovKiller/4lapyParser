@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 import bs4
-import os
 from urllib.parse import urljoin
 import json
 from typing import Iterable, List
