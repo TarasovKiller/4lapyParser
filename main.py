@@ -48,13 +48,9 @@ def get_page(session: requests.Session, page: int) -> (bs4.element.Tag, Iterable
 
     products = get_page_products(items)
 
-    # yield (productid, brand, name, price, href)
     button = bs.find(class_='b-pagination__item--next')
 
     return button.find("a"), products
-
-
-# get_page(1)
 
 
 def run(session: requests.Session) -> List[dict]:
@@ -100,10 +96,8 @@ def main():
     result = [{"Moscow": moscow_products, "Saint-Petersburg": piter_products}]
     json_data = json.dumps(result, ensure_ascii=False)
 
-
     with open('data.json', 'w', encoding='utf-8') as json_file:
         json_file.write(json_data)
-
 
 
 if __name__ == '__main__':
